@@ -1,12 +1,15 @@
-import studyContext from "./context/studyContext";
-import { useContext } from "react";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import PlannerDashboard from "./components/PlannerDashboard";
 
 const App = () => {
-  let data = useContext(studyContext);
-  data.setItem();
+  const [activeView, setActiveView] = useState("see-plans");
+
   return (
-    <div>
-    </div>
+    <main className="min-h-screen bg-slate-50 text-slate-900">
+      <Navbar activeView={activeView} setActiveView={setActiveView} />
+      <PlannerDashboard activeView={activeView} setActiveView={setActiveView} />
+    </main>
   )
 }
 
